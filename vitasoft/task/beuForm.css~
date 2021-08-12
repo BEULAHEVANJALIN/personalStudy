@@ -1,0 +1,171 @@
+html {
+height: 100%;
+width:100%
+}
+body {
+margin:0;
+padding:0;
+font-family: sans-serif;
+background: linear-gradient(#2a1430, #753045, #306075);
+}
+
+.form_wrapper {
+position: absolute;
+top: 50%;
+left: 30%;
+width: 800px;
+padding: 50px;
+transform: translate(-50%, -50%);
+background: #2a1430;
+box-sizing: content-box;
+box-shadow: 2px 1px 5px #03e9f3, -2px -1px 5px #03e9f3;
+border-radius: 50px;
+}
+
+.form_wrapper .form_text_box, .form_wrapper .form_dropdown_box {
+position: relative;
+}
+
+.form_wrapper .form_text_box input {
+width: 100%;
+padding: 10px 0;
+font-size: 18px;
+color: white;
+margin-bottom: 60px;
+border: none;
+border-bottom: 2px solid white;
+outline: none;
+background: transparent;
+}
+
+.form_wrapper .form_dropdown_box select{
+width: 200px;
+padding: 10px 0;
+font-size: 18px;
+color: white;
+margin-bottom: 30px;
+border: none;
+border-bottom: 2px solid white;
+outline: none;
+background: transparent;
+}
+
+.form_wrapper .form_dropdown_box label{
+top: -20px;
+left: 0;
+color: #03e9f3;
+font-size: 18px;
+}
+
+.form_wrapper .form_dropdown_box option{
+background-color: #2a1430;
+color: white;
+}
+
+.form_wrapper .form_text_box label {
+position: absolute;
+top:0;
+left: 0;
+padding: 10px 0;
+font-size: 18px;
+color: white;
+pointer-events: none;
+transition: .7s;
+}
+
+.form_wrapper .form_text_box input:focus ~ label,
+.form_wrapper .form_text_box input:valid ~ label {
+top: -20px;
+left: 0;
+color: #03e9f3;
+font-size: 14px;
+}
+
+.form_dropdown_box,  .form_text_box, .phone {
+display: flex;
+height: 100px;
+}
+
+.first_name{
+flex-grow: 1;
+position: absolute;
+left: 0%;
+}
+
+.middle_name{
+flex-grow: 1;
+position: absolute;
+left: 38.333%;
+}
+
+.last_name{
+flex-grow: 1;
+position: absolute;
+right: 0%;
+}
+
+.country_section {
+flex-grow: 1;
+position: absolute;
+left: 0%;
+}
+
+.state_section {
+flex-grow: 1;
+position: absolute;
+left: 38.333%;
+}
+
+.zipcode{
+flex-grow: 1;
+position: absolute;
+right: 0%;
+}
+
+.zipcode .form_text_box, .phone_number .form_text_box, .email .form_text_box{
+top: 25px;
+}
+
+.phone_number {
+flex-grow: 0.1;
+position: absolute;
+left: 8%;
+}
+
+.email {
+position: absolute;
+right: 0%;
+width: 400px;
+}	
+
+#menu {
+width: 50px;
+}
+
+.height{
+flex-grow: 1;
+position: absolute;
+left: 30%;
+width:100px;
+}
+
+.weight{
+flex-grow: 1;
+position: absolute;
+right: 30%;
+width:100px;
+}
+
+.output_wrapper {
+color:white;
+position:fixed;
+transform: translate(-50%, -50%);
+top: 50%;
+left: 69%;
+width: 200px;
+padding: 50px;
+background: #2a1430;
+box-sizing: content-box;
+box-shadow: 2px 1px 5px #03e9f3, -2px -1px 5px #03e9f3;
+border-radius: 50px;
+}

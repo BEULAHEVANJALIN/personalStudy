@@ -1,0 +1,311 @@
+<html>
+	<head>
+		<style>
+			html {
+height: 100%;
+width:100%
+}
+body {
+margin:0;
+padding:0;
+font-family: sans-serif;
+background: linear-gradient(#2a1430, #753045, #306075);
+}
+
+.form_wrapper {
+position: absolute;
+top: 50%;
+left: 30%;
+width: 800px;
+padding: 50px;
+transform: translate(-50%, -50%);
+background: #2a1430;
+box-sizing: content-box;
+box-shadow: 2px 1px 5px #03e9f3, -2px -1px 5px #03e9f3;
+border-radius: 50px;
+}
+
+.form_wrapper .form_text_box, .form_wrapper .form_dropdown_box {
+position: relative;
+}
+
+.form_wrapper .form_text_box input {
+width: 100%;
+padding: 10px 0;
+font-size: 18px;
+color: white;
+margin-bottom: 60px;
+border: none;
+border-bottom: 2px solid white;
+outline: none;
+background: transparent;
+}
+
+.form_wrapper .form_dropdown_box select{
+width: 200px;
+padding: 10px 0;
+font-size: 18px;
+color: white;
+margin-bottom: 30px;
+border: none;
+border-bottom: 2px solid white;
+outline: none;
+background: transparent;
+}
+
+.form_wrapper .form_dropdown_box label{
+top: -20px;
+left: 0;
+color: #03e9f3;
+font-size: 18px;
+}
+
+.form_wrapper .form_dropdown_box option{
+background-color: #2a1430;
+color: white;
+}
+
+.form_wrapper .form_text_box label {
+position: absolute;
+top:0;
+left: 0;
+padding: 10px 0;
+font-size: 18px;
+color: white;
+pointer-events: none;
+transition: .7s;
+}
+
+.form_wrapper .form_text_box input:focus ~ label,
+.form_wrapper .form_text_box input:valid ~ label {
+top: -20px;
+left: 0;
+color: #03e9f3;
+font-size: 14px;
+}
+
+.form_dropdown_box,  .form_text_box, .phone {
+display: flex;
+height: 100px;
+}
+
+.first_name{
+flex-grow: 1;
+position: absolute;
+left: 0%;
+}
+
+.middle_name{
+flex-grow: 1;
+position: absolute;
+left: 38.333%;
+}
+
+.last_name{
+flex-grow: 1;
+position: absolute;
+right: 0%;
+}
+
+.country_section {
+flex-grow: 1;
+position: absolute;
+left: 0%;
+}
+
+.state_section {
+flex-grow: 1;
+position: absolute;
+left: 38.333%;
+}
+
+.zipcode{
+flex-grow: 1;
+position: absolute;
+right: 0%;
+}
+
+.zipcode .form_text_box, .phone_number .form_text_box, .email .form_text_box{
+top: 25px;
+}
+
+.phone_number {
+flex-grow: 0.1;
+position: absolute;
+left: 8%;
+}
+
+.email {
+position: absolute;
+right: 0%;
+width: 400px;
+}	
+
+#menu {
+width: 50px;
+}
+
+.height{
+flex-grow: 1;
+position: absolute;
+left: 30%;
+width:100px;
+}
+
+.weight{
+flex-grow: 1;
+position: absolute;
+right: 30%;
+width:100px;
+}
+
+.output_wrapper {
+color:white;
+position:fixed;
+transform: translate(-50%, -50%);
+top: 50%;
+left: 69%;
+width: 200px;
+padding: 50px;
+background: #2a1430;
+box-sizing: content-box;
+box-shadow: 2px 1px 5px #03e9f3, -2px -1px 5px #03e9f3;
+border-radius: 50px;
+}
+		</style>
+		<script>
+			function validateForm() {
+				let fname = document.forms["beuForm"]["firstname"].value;
+				if (fname == "") {
+					alert("First name should be filled out");
+					return false;
+				}
+				let mname = document.forms["beuForm"]["middlename"].value;
+				if (mname == "") {
+					alert("Middle name should be filled out");
+					return false;
+				}
+				let lname = document.forms["beuForm"]["lastname"].value;
+				if (lname == "") {
+					alert("Last name should be filled out");
+					return false;
+				}
+				let addr = document.forms["beuForm"]["address"].value;
+				if (addr == "") {
+					alert("Address should be filled out");
+					return false;
+				}
+				let height = document.forms["beuForm"]["height"].value;
+					if (isNaN(x) || x < 0 ) {
+						alert("Not a valid height");
+						return false;
+					}
+				let weight = document.forms["beuForm"]["weight"].value;
+					if (isNaN(x) || x < 0 ) {
+						alert("Not a valid weight");
+						return false;
+					}
+			}
+			function getFormData() {
+				validateForm();
+				var data = new FormData();
+				data.append("First name", document.getElementById("first_name").value);
+				data.append("Middle name", document.getElementById("mid_name").value);
+				for (let [k, v] of data.entries()) { console.log(k, v); }
+  				return false;
+			}		
+		</script>
+	</head>
+	<body>
+		<div class="form_wrapper" id="section1">
+			<form name="beuForm" autocomplete="off" onsubmit="return getFormData()" method="post">
+				<div class="form_text_box">
+					<div class="first_name">
+						<input type="text" id="first_name"  required name="firstname" value=""> 
+						<label>First name:</label>
+					</div>
+
+					<div class="middle_name">
+						<input type="text" id="mid_name" required name="middlename" value="">
+						<label>Middle name:</label>
+					</div>
+
+					<div class="last_name">
+						<input type="text" name="lastname" required value="">
+						<label>Last name:</label>
+					</div>
+				</div><!--form_text_box-->
+				<div class="form_text_box">
+					<input type="text" required name="address">
+					<label>Address:</label>
+				</div>
+				<div class="form_dropdown_box">
+					<div class="country_section">
+						<label>Country:</label></br>
+						<select name="country">
+						<option value="" selected disabled hidden>Select Country</option>
+						{{#each countries}}
+						<option>{{.}}</option>
+						{{/each}}
+						</select>
+					</div><!--country_section-->
+					<div class="state_section">
+						<label>State:</label></br>
+						<select name="state">
+						<option value="" selected disabled hidden>Select State</option>
+						<option>be</option>
+						<option>3</option>
+						<option>2</option>
+						</select>
+					</div><!--state_section-->
+					<div class="zipcode">
+						<div class="form_text_box">
+							<input type="text" name="zipcode" required>
+							<label>Zipcode:</label>
+						</div>
+					</div><!--zipcode-->
+				</div><!--form_dropdown_box-->
+				
+				<div class="form_dropdown_box">
+					<div>
+						<label>Phone number:</label></br>
+						<select id="menu" name="phonecode">
+						<option value="" selected disabled hidden></option>
+						<option>be</option>
+						<option>3</option>
+						<option>2</option>
+						</select>
+					</div><!--country_section-->
+					<div class="phone_number">
+						<div class="form_text_box">
+							<input type="tel" required name="phonenumber">
+						</div>
+					</div>
+					<div class="email">
+						<div class="form_text_box">
+							<input type="email" name="email" required>
+							<label>E-mail:</label>
+						</div>
+					</div>
+				</div><!--form_dropdown_box-->
+				
+				<div class="form_text_box">
+					<div class="height">
+						<input type="number" name="height" required>
+						<label>Height:</label>
+					</div>
+
+					<div class="weight">
+						<input type="number" name="weight" required>
+						<label>Weight:</label>
+					</div>
+				</div><!--form_text_box-->	
+
+				<input type="submit" onclick="showData();">
+			</form>
+		</div><!--End of Form Wrapper-->
+
+<div class="output_wrapper">
+</div>
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="beuForm.css">
+		<script>
+			function validateForm() {
+				let fname = document.forms["beuForm"]["firstname"].value;
+				if (fname == "") {
+					alert("First name should be filled out");
+					return false;
+				}
+				let mname = document.forms["beuForm"]["middlename"].value;
+				if (mname == "") {
+					alert("Middle name should be filled out");
+					return false;
+				}
+				let lname = document.forms["beuForm"]["lastname"].value;
+				if (lname == "") {
+					alert("Last name should be filled out");
+					return false;
+				}
+				let addr = document.forms["beuForm"]["address"].value;
+				if (addr == "") {
+					alert("Address should be filled out");
+					return false;
+				}
+				let height = document.forms["beuForm"]["height"].value;
+					if (isNaN(x) || x < 0 ) {
+						alert("Not a valid height");
+						return false;
+					}
+				let weight = document.forms["beuForm"]["weight"].value;
+					if (isNaN(x) || x < 0 ) {
+						alert("Not a valid weight");
+						return false;
+					}
+			}
+			function getFormData() {
+				validateForm();
+				var data = new FormData();
+				data.append("First name", document.getElementById("first_name").value);
+				data.append("Middle name", document.getElementById("mid_name").value);
+
+				for (let [k, v] of data.entries()) { console.log(k, v); }
+  				return false;
+			}		
+		</script>
+	</head>
+	<body>
+		<div class="form_wrapper" id="section1">
+			<form name="beuForm" autocomplete="off" onsubmit="return getFormData()" method="post">
+				<div class="form_text_box">
+					<div class="first_name">
+						<input type="text" id="first_name" name="firstname" value=""> 
+						<label>First name:</label>
+					</div>
+
+					<div class="middle_name">
+						<input type="text" id="mid_name"name="middlename" value="">
+						<label>Middle name:</label>
+					</div>
+
+					<div class="last_name">
+						<input type="text" name="lastname" value="">
+						<label>Last name:</label>
+					</div>
+				</div><!--form_text_box-->
+				<div class="form_text_box">
+					<input type="text" name="address">
+					<label>Address:</label>
+				</div>
+				<div class="form_dropdown_box">
+					<div class="country_section">
+						<label>Country:</label></br>
+						<select name="country">
+						<option value="" selected disabled hidden>Select Country</option>
+						<option>be</option>
+						<option>3</option>
+						<option>2</option>
+						</select>
+					</div><!--country_section-->
+					<div class="state_section">
+						<label>State:</label></br>
+						<select name="state">
+						<option value="" selected disabled hidden>Select State</option>
+						<option>be</option>
+						<option>3</option>
+						<option>2</option>
+						</select>
+					</div><!--state_section-->
+					<div class="zipcode">
+						<div class="form_text_box">
+							<input type="text" name="zipcode" required>
+							<label>Zipcode:</label>
+						</div>
+					</div><!--zipcode-->
+				</div><!--form_dropdown_box-->
+				
+				<div class="form_dropdown_box">
+					<div>
+						<label>Phone number:</label></br>
+						<select id="menu" name="phonecode">
+						<option value="" selected disabled hidden></option>
+						<option>be</option>
+						<option>3</option>
+						<option>2</option>
+						</select>
+					</div><!--country_section-->
+					<div class="phone_number">
+						<div class="form_text_box">
+							<input type="tel" required name="phonenumber">
+						</div>
+					</div>
+					<div class="email">
+						<div class="form_text_box">
+							<input type="email" name="email" required>
+							<label>E-mail:</label>
+						</div>
+					</div>
+				</div><!--form_dropdown_box-->
+				
+				<div class="form_text_box">
+					<div class="height">
+						<input type="number" name="height" required>
+						<label>Height:</label>
+					</div>
+
+					<div class="weight">
+						<input type="number" name="weight" required>
+						<label>Weight:</label>
+					</div>
+				</div><!--form_text_box-->	
+
+				<input type="submit" onclick="showData();">
+			</form>
+		</div><!--End of Form Wrapper-->
+
+<div class="output_wrapper">
+<p>
+First Name: 
+Last Name : 
+Middle Name : 
+Address : 
+Email :
+Phone :
+				</p>
+</div>
+	</body>
+</html>
